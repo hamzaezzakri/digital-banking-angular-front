@@ -1,0 +1,31 @@
+<div class="container mt-2">
+  <div class="row">
+    <div class="col col-md-10 offset-2 mt-3">
+      <div class="card">
+        <div class="card-header">{{ customerName }} accounts</div>
+        <div class="card-body">
+          <ng-container *ngIf="customerAccounts | async as accountDetails">
+            <table class="table">
+              <thead>
+              <th>Type</th><th>ID</th><th>balance</th><th>createdAt</th><th>status</th><th>overDraft</th><th>interestRate</th>
+              </thead>
+              <tbody>
+              <tr *ngFor="let acc of accountDetails">
+                <td>{{acc.type}}</td>
+                <td>{{acc.id}}</td>
+                <td>{{acc.balance | number: '1.2-2'}}</td>
+                <td>{{acc.createdAt | date : 'medium'}}</td>
+                <td>{{acc.status}}</td>
+                <td>{{acc.overDraft}}</td>
+                <td>{{acc.interestRate}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
